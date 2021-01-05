@@ -12,19 +12,15 @@
 * 只需要下载Demo，拷贝main目录下的 jniLibs包下的所有so依赖库 和app目录下 ijkplayer-java-release.aar   （这个是ijk工程里面的java代码）
 * 您在app的build.gradle中android节点里面找到-->defaultConfig节点--->然后添加
 *    ndk {
-*              // 设置支持的SO库架构
-*            abiFilters 'arm64-v8a','armeabi' ,'armeabi-v7a', 'x86', 'x86_64'
+*         abiFilters 'arm64-v8a','armeabi' ,'armeabi-v7a', 'x86', 'x86_64'     // 设置支持的SO库架构
 *        }
-*
 *  然后在 dependencies中添加    implementation files('libs/ijkplayer-java-release.aar')     //第一步拷贝的aar的依赖
 *
 * 第二步：
 * 项目中如何使用？
 *
 * 直播中：开始录像：  mPlayer.startRecord(mRecordPath);   //mRecordPath  是录像存入的文件路径
-*
 * 直播中：结束录像：  mPlayer.stopRecord();
-*
 * 直播中：截图：      Bitmap srcBitmap = Bitmap.createBitmap(1920,1080, Bitmap.Config.ARGB_8888);   //PS：异步的哦，记得开线程！！！！
 *                   mPlayer.getCurrentFrame(srcBitmap);
 *
@@ -41,9 +37,8 @@
 
 #### 简单说明
 * 晚上有很多修改底层C的代码，实现录像和截图，但是好多都会程序奔溃和闪退，这个Demo做了优化
-*
+
 * 修改底层C代码增加了三个native的API：
-*
 * 我们使用的其实都是底层调用这三个方法：
 * public native int startRecord(String var1);           //开始录像
 * public native int stopRecord();                       //结束录像
