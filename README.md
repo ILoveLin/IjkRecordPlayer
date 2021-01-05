@@ -1,4 +1,4 @@
-# ijkplayer_record_Player 支持录像,截图功能,支持RTSP,RTMP,HTTP,HTTPS等等在线直播(支持所有CPU架构)，您可以做二次开发添加其他功能！！
+# 此Demo： 支持录像,截图功能,支持RTSP,RTMP,HTTP,HTTPS等等在线直播(支持所有CPU架构)，您可以做二次开发添加其他功能！！
 
 
 #### 如果帮助的到了您，请您不要吝啬你的Star，谢谢您的点赞（Star），3Q
