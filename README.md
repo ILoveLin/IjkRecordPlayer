@@ -21,20 +21,14 @@
 *
 * 直播中：开始录像：  mPlayer.startRecord(mRecordPath);   //mRecordPath  是录像存入的文件路径
 * 直播中：结束录像：  mPlayer.stopRecord();
-* 直播中：截图：      Bitmap srcBitmap = Bitmap.createBitmap(1920,1080, Bitmap.Config.ARGB_8888);   //PS：异步的哦，记得开线程！！！！
-*                   mPlayer.getCurrentFrame(srcBitmap);
+* 直播中：截图：      Bitmap srcBitmap = Bitmap.createBitmap(1920,1080, Bitmap.Config.ARGB_8888);    mPlayer.getCurrentFrame(srcBitmap);   //PS：异步的哦，记得开线程！！！！
 *
-*
-*
+
 * 重要的事情说三遍！！！
 * What ？还是不懂?请您下载Demo,查看MainActivity里面的简单代码，我相信您一看就会~~~！
 * What ？还是不懂?请您下载Demo,查看MainActivity里面的简单代码，我相信您一看就会~~~！
 * What ？还是不懂?请您下载Demo,查看MainActivity里面的简单代码，我相信您一看就会~~~！
 *
-*
-
-
-
 #### 简单说明
 * 晚上有很多修改底层C的代码，实现录像和截图，但是好多都会程序奔溃和闪退，这个Demo做了优化
 
