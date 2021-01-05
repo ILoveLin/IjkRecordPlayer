@@ -1,0 +1,70 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.company.myapplication"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            // 设置支持的SO库架构
+//            abiFilters  'armeabi-v7a'
+            abiFilters 'arm64-v8a','armeabi' ,'armeabi-v7a', 'x86', 'x86_64'
+        }
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions.encoding = "UTF-8"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+//    sourceSets.main {
+//        jniLibs.srcDirs = ['libs']
+//    }
+}
+
+dependencies {
+
+    implementation files('libs/ijkplayer-java-release.aar')
+    implementation   'com.hjq:xxpermissions:9.0'
+//    implementation 'tv.danmaku.ijk.media:ijkplayer-java:0.8.1'
+//    implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.1'
+//    implementation 'tv.danmaku.ijk.media:ijkplayer-exo:0.8.1'
+
+
+////    # required, enough for most devices.
+//    implementation 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'
+//    implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8'
+//
+////    # Other ABIs: optional
+//    implementation 'tv.danmaku.ijk.media:ijkplayer-armv5:0.8.8'
+//    implementation 'tv.danmaku.ijk.media:ijkplayer-arm64:0.8.8'
+//    implementation 'tv.danmaku.ijk.media:ijkplayer-x86:0.8.8'
+//    implementation 'tv.danmaku.ijk.media:ijkplayer-x86_64:0.8.8'
+//
+////    # ExoPlayer as IMediaPlayer: optional, experimental
+//    implementation 'tv.danmaku.ijk.media:ijkplayer-exo:0.8.8'
+
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+}
