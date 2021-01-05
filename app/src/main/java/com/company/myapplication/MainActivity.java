@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //     public static final String path = "http://121.18.168.149/cache.ott.ystenlive.itv.cmvideo.cn:80/000000001000/1000000001000010606/1.m3u8?stbId=005301FF001589101611549359B92C46&channel-id=ystenlive&Contentid=1000000001000010606&mos=jbjhhzstsl&livemode=1&version=1.0&owaccmark=1000000001000010606&owchid=ystenlive&owsid=5474771579530255373&AuthInfo=2TOfGIahP4HrGWrHbpJXVOhAZZf%2B%2BRvFCOimr7PCGr%2Bu3lLj0NrV6tPDBIsVEpn3QZdNn969VxaznG4qedKIxPvWqo6nkyvxK0SnJLSEP%2FF4Wxm5gCchMH9VO%2BhWyofF";
 //    public static final String path = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov";
     public static final String path = "http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8";
-//    public static final String path = "rtsp://root:root@192.168.129.39:7788/session0.mpg";
+    //    public static final String path = "rtsp://root:root@192.168.129.39:7788/session0.mpg";
     //    public static final String path = "rtmp://58.200.131.2:1935/livetv/jxhd";
     //    public String path = "rtmp://58.200.131.2:1935/livetv/jxhd";
     //    public String path = "rtsp://username:password@ip：port/session1.mpg";
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
+    //刷新相册，出现刚刚录像视频
     public static void scanFile(Context context, String filePath) {
         Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
         intent.setData(Uri.fromFile(new File(filePath)));
@@ -119,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         Bitmap srcBitmap = Bitmap.createBitmap(1920,
                                 1080, Bitmap.Config.ARGB_8888);
                         boolean currentFrame = mPlayer.getCurrentFrame(srcBitmap);
-                        //插入相册 解决了华为截图显示问题
+                        //插入相册 ，显示刚刚的截图
                         MediaStore.Images.Media.insertImage(getContentResolver(), srcBitmap, "", "");
 
                     }
