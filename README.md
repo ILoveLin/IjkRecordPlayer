@@ -11,9 +11,7 @@
 * 第一步：
 * 只需要下载Demo，拷贝main目录下的 jniLibs包下的所有so依赖库 和app目录下 ijkplayer-java-release.aar   （这个是ijk工程里面的java代码）
 * 您在app的build.gradle中android节点里面找到-->defaultConfig节点--->然后添加
-*    ndk {
-*         abiFilters 'arm64-v8a','armeabi' ,'armeabi-v7a', 'x86', 'x86_64'     // 设置支持的SO库架构
-*        }
+*    ndk {abiFilters 'arm64-v8a','armeabi' ,'armeabi-v7a', 'x86', 'x86_64'}     // 设置支持的SO库架构
 *  然后在 dependencies中添加    implementation files('libs/ijkplayer-java-release.aar')     //第一步拷贝的aar的依赖
 *
 * 第二步：
