@@ -20,7 +20,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.hjq.permissions.OnPermission;
+import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 
@@ -38,10 +38,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "MainActivity";
     //     public static final String path = "http://121.18.168.149/cache.ott.ystenlive.itv.cmvideo.cn:80/000000001000/1000000001000010606/1.m3u8?stbId=005301FF001589101611549359B92C46&channel-id=ystenlive&Contentid=1000000001000010606&mos=jbjhhzstsl&livemode=1&version=1.0&owaccmark=1000000001000010606&owchid=ystenlive&owsid=5474771579530255373&AuthInfo=2TOfGIahP4HrGWrHbpJXVOhAZZf%2B%2BRvFCOimr7PCGr%2Bu3lLj0NrV6tPDBIsVEpn3QZdNn969VxaznG4qedKIxPvWqo6nkyvxK0SnJLSEP%2FF4Wxm5gCchMH9VO%2BhWyofF";
 //    public static final String path = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov";
-    public static final String path = "http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8";
+//    public static final String path = "http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8";
     //    public static final String path = "rtsp://root:root@192.168.129.39:7788/session0.mpg";
     //    public static final String path = "rtmp://58.200.131.2:1935/livetv/jxhd";
-    //    public String path = "rtmp://58.200.131.2:1935/livetv/jxhd";
+        public String path = "rtmp://58.200.131.2:1935/livetv/jxhd";
     //    public String path = "rtsp://username:password@ip：port/session1.mpg";
     //public static final String path = "http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8";
     //private String path = "http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f20.mp4";
@@ -204,33 +204,62 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void requestPermission() {
-        XXPermissions.with(MainActivity.this)
+
+        XXPermissions.with(this)
                 // 不适配 Android 11 可以这样写
                 //.permission(Permission.Group.STORAGE)
                 // 适配 Android 11 需要这样写，这里无需再写 Permission.Group.STORAGE
-//                .permission(Permission.MANAGE_EXTERNAL_STORAGE)
-                .permission(Permission.WRITE_EXTERNAL_STORAGE)
-                .permission(Permission.READ_EXTERNAL_STORAGE)
-                .request(new OnPermission() {
+                .permission(Permission.MANAGE_EXTERNAL_STORAGE)
+                .request(new OnPermissionCallback() {
 
                     @Override
-                    public void hasPermission(List<String> granted, boolean all) {
+                    public void onGranted(List<String> permissions, boolean all) {
                         if (all) {
-//                            showToast("获取存储权限成功");
+                            Toast.makeText(MainActivity.this,"获取存储权限成功",Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
-                    public void noPermission(List<String> denied, boolean never) {
+                    public void onDenied(List<String> permissions, boolean never) {
                         if (never) {
-//                            showToast("被永久拒绝授权，请手动授予存储权限");
+                            Toast.makeText(MainActivity.this,"被永久拒绝授权，请手动授予存储权限",Toast.LENGTH_SHORT).show();
+
                             // 如果是被永久拒绝就跳转到应用权限系统设置页面
-                            XXPermissions.startPermissionActivity(MainActivity.this, denied);
+                            XXPermissions.startPermissionActivity(MainActivity.this, permissions);
                         } else {
-//                            showToast("获取存储权限失败");
+                            Toast.makeText(MainActivity.this,"获取存储权限失败",Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+
+
+//        XXPermissions.with(MainActivity.this)
+//                // 不适配 Android 11 可以这样写
+//                //.permission(Permission.Group.STORAGE)
+//                // 适配 Android 11 需要这样写，这里无需再写 Permission.Group.STORAGE
+////                .permission(Permission.MANAGE_EXTERNAL_STORAGE)
+//                .permission(Permission.WRITE_EXTERNAL_STORAGE)
+//                .permission(Permission.READ_EXTERNAL_STORAGE)
+//                .request(new OnPermission() {
+//
+//                    @Override
+//                    public void hasPermission(List<String> granted, boolean all) {
+//                        if (all) {
+////                            showToast("获取存储权限成功");
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void noPermission(List<String> denied, boolean never) {
+//                        if (never) {
+////                            showToast("被永久拒绝授权，请手动授予存储权限");
+//                            // 如果是被永久拒绝就跳转到应用权限系统设置页面
+//                            XXPermissions.startPermissionActivity(MainActivity.this, denied);
+//                        } else {
+////                            showToast("获取存储权限失败");
+//                        }
+//                    }
+//                });
 
     }
 //    //截图
