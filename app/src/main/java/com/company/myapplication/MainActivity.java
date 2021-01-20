@@ -41,9 +41,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //    public static final String path = "http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8";
     //    public static final String path = "rtsp://root:root@192.168.129.39:7788/session0.mpg";
     //    public static final String path = "rtmp://58.200.131.2:1935/livetv/jxhd";
-        public String path = "rtmp://58.200.131.2:1935/livetv/jxhd";
+//        public String path = "rtmp://58.200.131.2:1935/livetv/jxhd";
     //    public String path = "rtsp://username:password@ip：port/session1.mpg";
-    //public static final String path = "http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8";
+    public static final String path = "rtsp://root:root@192.168.66.42:7788/session0.mpg";   //我自己公司rtsp的流地址
     //private String path = "http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f20.mp4";
     private SurfaceView surfaceView;
     private TextureView textureView;
@@ -142,6 +142,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             // 设置调用prepareAsync不自动播放，即调用start才开始播放
             mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "start-on-prepared", 0);
             mPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+            /**
+             * rtsp直播配置如下参数不然 录像会出问题
+             */
+            if (path.startsWith("rtsp")){
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "fast", 1);
+                //播放前的探测Size，默认是1M, 改小一点会出画面更快
+//            ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "probesize", 200);
+                //每处理一个packet之后刷新io上下文
+//            ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "flush_packets", 1);
+                //是否开启预缓冲，一般直播项目会开启，达到秒开的效果，不过带来了播放丢帧卡顿的体验
+//            ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "packet-buffering", 0);
+//            ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "framedrop", 48);   //
+//            设置是否开启环路过滤: 0开启，画面质量高，解码开销大，48关闭，画面质量差点，解码开销小
+//            ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_CODEC, "skip_loop_filter", 48);
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "mediacodec", 0);
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "mediacodec-handle-resolution-change", 0);
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "max-buffer-size", 0);
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "min-frames", 2);
+//            ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "fflags", "nobuffer");
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "rtsp_transport", "tcp");
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "analyzedmaxduration", 100);
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "http-detect-range-support", 0);
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_CODEC, "skip_loop_filter", 48);
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_CODEC, "skip_loop_filter", 8);
+                mPlayer.setOption(1, "analyzemaxduration", 100L);
+                mPlayer.setOption(1, "probesize", 10240L);  //下探视频时间
+                mPlayer.setOption(1, "flush_packets", 1L);
+                mPlayer.setOption(4, "framedrop", 1L);
+                mPlayer.setOption(4, "max_cached_duration", 600);    //直播
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "infbuf", 1);//直播
+                mPlayer.setOption(4, "packet-buffering", 0L);
+            }else{
+                /**
+                 * rtmp  http 配置如下参数即可
+                 */
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "framedrop", 1);
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "start-on-prepared", 0);
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "http-detect-range-support", 0);
+                mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_CODEC, "skip_loop_filter", 48);
+//
+            }
+
+
             try {
 //                mPlayer.setDataSource("http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f20.mp4");
                 mPlayer.setDataSource(path);
@@ -215,19 +258,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onGranted(List<String> permissions, boolean all) {
                         if (all) {
-                            Toast.makeText(MainActivity.this,"获取存储权限成功",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "获取存储权限成功", Toast.LENGTH_SHORT).show();
                         }
                     }
 
                     @Override
                     public void onDenied(List<String> permissions, boolean never) {
                         if (never) {
-                            Toast.makeText(MainActivity.this,"被永久拒绝授权，请手动授予存储权限",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "被永久拒绝授权，请手动授予存储权限", Toast.LENGTH_SHORT).show();
 
                             // 如果是被永久拒绝就跳转到应用权限系统设置页面
                             XXPermissions.startPermissionActivity(MainActivity.this, permissions);
                         } else {
-                            Toast.makeText(MainActivity.this,"获取存储权限失败",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "获取存储权限失败", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
