@@ -40,3 +40,7 @@
 * public native boolean getCurrentFrame(Bitmap var1);   //截图
 
 
+
+##最新更新 在此Demo下更新了播放器UI控制器，以及RTSP,RTMP音频推流实现连麦功能
+*详情请移步
+*https://github.com/ILoveLin/ijkplayer_Record_PlayerAddUI
