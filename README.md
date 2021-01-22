@@ -1,4 +1,4 @@
-# 此Demo： 支持录像,截图功能,支持RTSP,RTMP,HTTP,HTTPS等等在线直播(支持所有CPU架构)，您可以做二次开发添加其他功能！！
+# 此Demo： 支持录像,截图功能(只支持直播噢!),支持RTSP,RTMP,HTTP等等在线直播(支持所有CPU架构)，您可以做二次开发添加其他功能！！
 
 *
 *
@@ -11,14 +11,14 @@
 #### 项目使用
 * 备注：您不需要编译任何东西，只需要下载Demo，拷贝main目录下的 jniLibs包下的所有so依赖库 和app/libs目录下 ijkplayer-java-release.aar   （这个是ijk工程里面的java代码）到你自己的项目里面.
 *
-* 第一步：
+* 第一步：(只支持直播噢!)
 * 只需要下载Demo，拷贝main目录下的 jniLibs包下的所有so依赖库 和app目录下 ijkplayer-java-release.aar   （这个是ijk工程里面的java代码）
 * 您在app的build.gradle中android节点里面找到-->defaultConfig节点--->然后添加
 *    ndk {abiFilters 'arm64-v8a','armeabi' ,'armeabi-v7a', 'x86', 'x86_64'}     // 设置支持的SO库架构
 *  然后在 dependencies中添加    implementation files('libs/ijkplayer-java-release.aar')     //第一步拷贝的aar的依赖
 *
 * 第二步：
-* 项目中如何使用？
+* 项目中如何使用？(只支持直播噢!)
 *
 * 直播中：开始录像：  mPlayer.startRecord(mRecordPath);   //mRecordPath  是录像存入的文件路径
 * 直播中：结束录像：  mPlayer.stopRecord();
