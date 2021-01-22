@@ -9,7 +9,7 @@
 #### 百度ijkplayer录像 截图功能有很多教程，但是很多都是会，崩溃或者闪退，等等问题！！！！所以在此我觉得把这个Demo开源出来，希望能帮助到需要的人！
 
 
-######最新更新 在此Demo下更新了，播放器UI控制器，以及RTSP,RTMP音频推流实现连麦功能
+#### 最新更新 在此Demo下更新了，播放器UI控制器，以及RTSP,RTMP音频推流实现连麦功能
 *详情请移步
 *https://github.com/ILoveLin/ijkplayer_Record_PlayerAddUI
 
