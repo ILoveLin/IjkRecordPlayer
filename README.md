@@ -29,7 +29,7 @@
 *    ndk {abiFilters 'arm64-v8a','armeabi' ,'armeabi-v7a', 'x86', 'x86_64'}     // 设置支持的SO库架构
 *  然后在 dependencies中添加    implementation files('libs/ijkplayer-java-release.aar')     //第一步拷贝的aar的依赖
 *
-* 第二步：
+* 第二步：(记得动态获取权限在调用以下API,不然会失败哦)
 * 项目中如何使用？(只支持直播噢!)
 *
 * 直播中：开始录像：  mPlayer.startRecord(mRecordPath);   //mRecordPath  是录像存入的文件路径
