@@ -27,6 +27,7 @@ import com.hjq.permissions.XXPermissions;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -36,15 +37,10 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity";
-    //     public static final String path = "http://121.18.168.149/cache.ott.ystenlive.itv.cmvideo.cn:80/000000001000/1000000001000010606/1.m3u8?stbId=005301FF001589101611549359B92C46&channel-id=ystenlive&Contentid=1000000001000010606&mos=jbjhhzstsl&livemode=1&version=1.0&owaccmark=1000000001000010606&owchid=ystenlive&owsid=5474771579530255373&AuthInfo=2TOfGIahP4HrGWrHbpJXVOhAZZf%2B%2BRvFCOimr7PCGr%2Bu3lLj0NrV6tPDBIsVEpn3QZdNn969VxaznG4qedKIxPvWqo6nkyvxK0SnJLSEP%2FF4Wxm5gCchMH9VO%2BhWyofF";
-//    public static final String path = "rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov";
-//    public static final String path = "http://ivi.bupt.edu.cn/hls/cctv1hd.m3u8";
-    //    public static final String path = "rtsp://root:root@192.168.129.39:7788/session0.mpg";
-    //    public static final String path = "rtmp://58.200.131.2:1935/livetv/jxhd";
-//        public String path = "rtmp://58.200.131.2:1935/livetv/jxhd";
-    //    public String path = "rtsp://username:password@ip：port/session1.mpg";
-    public static final String path = "rtsp://root:root@192.168.66.42:7788/session0.mpg";   //我自己公司rtsp的流地址
-    //private String path = "http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f20.mp4";
+    //苹果公司点播的的流地址
+//    public static final String path = "http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8";
+    //我自己公司rtsp的流地址
+    public static final String path = "rtsp://root:root@192.168.66.31:7788/session0.mpg";
     private SurfaceView surfaceView;
     private TextureView textureView;
     private Surface mSurface;
@@ -106,7 +102,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_end_record:   //结束
                 mPlayer.stopRecord();
-                scanFile(this, mRecordPath);
+                FileUtil.RefreshAlbum(mRecordPath, true, this);
+
+//                scanFile(this, mRecordPath);
                 Toast.makeText(this, "结束录像", Toast.LENGTH_SHORT).show();
 
                 break;
@@ -116,10 +114,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void run() {
                         super.run();
+//
+//                        Bitmap srcBitmap = Bitmap.createBitmap(1600,
+//                                2560, Bitmap.Config.ARGB_8888);
                         Bitmap srcBitmap = Bitmap.createBitmap(1920,
                                 1080, Bitmap.Config.ARGB_8888);
+
+//                        Bitmap srcBitmap = Bitmap.createBitmap(720,
+//                                1280, Bitmap.Config.ARGB_8888);
                         boolean currentFrame = mPlayer.getCurrentFrame(srcBitmap);
                         //插入相册 ，显示刚刚的截图
+//                        MediaStore.Images.Media.insertImage(getContentResolver(), srcBitmap, "IMG" + Calendar.getInstance().getTime(), null);
                         MediaStore.Images.Media.insertImage(getContentResolver(), srcBitmap, "", "");
 
                     }
@@ -145,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             /**
              * rtsp直播配置如下参数不然 录像会出问题
              */
-            if (path.startsWith("rtsp")){
+            if (path.startsWith("rtsp")) {
                 mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "fast", 1);
                 //播放前的探测Size，默认是1M, 改小一点会出画面更快
 //            ijkMediaPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_FORMAT, "probesize", 200);
@@ -173,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mPlayer.setOption(4, "max_cached_duration", 600);    //直播
                 mPlayer.setOption(IjkMediaPlayer.OPT_CATEGORY_PLAYER, "infbuf", 1);//直播
                 mPlayer.setOption(4, "packet-buffering", 0L);
-            }else{
+            } else {
                 /**
                  * rtmp  http 配置如下参数即可
                  */
