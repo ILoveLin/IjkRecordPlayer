@@ -15,7 +15,7 @@
 
 
 
-
+## 此项目已经停止维护,目前使用VLC做二次开发(点播,直播,都能实现截图,录像功能,健壮性更强具体请参考我的:GodPlayer项目)
 #### 项目使用
 * 备注：您不需要编译任何东西，只需要下载Demo，拷贝main目录下的 jniLibs包下的所有so依赖库 和app/libs目录下 ijkplayer-java-release.aar   （这个是ijk工程里面的java代码）到你自己的项目里面.
 *
