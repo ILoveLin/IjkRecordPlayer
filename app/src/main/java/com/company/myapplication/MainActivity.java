@@ -102,9 +102,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_end_record:   //结束
                 mPlayer.stopRecord();
-                FileUtil.RefreshAlbum(mRecordPath, true, this);
-
-//                scanFile(this, mRecordPath);
+//                FileUtil.RefreshAlbum(mRecordPath, true, this);
+//
+                scanFile(this, mRecordPath);
                 Toast.makeText(this, "结束录像", Toast.LENGTH_SHORT).show();
 
                 break;

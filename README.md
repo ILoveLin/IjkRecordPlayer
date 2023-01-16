@@ -1,21 +1,25 @@
-## 此Demo： 支持录像,截图功能(点播不支持录像,只支持直播噢!),支持RTSP,RTMP,HTTP等等在线直播(支持所有CPU架构)，您可以做二次开发添加其他功能！！
+
+## 此Demo(不维护了)： 支持录像,截图功能(点播不支持录像,只支持直播噢!),支持RTSP,RTMP,HTTP等等在线直播(支持所有CPU架构)，您可以做二次开发添加其他功能！！
 *
-#### 此Demo： 不维护了，因为此项目只支持直播的时候，才能录制视频。我现在使用VLC，作为播放器来实现，录像，截图功能(点播,直播都支持!)
-#### 此Demo： 不维护了，因为此项目只支持直播的时候，才能录制视频。我现在使用VLC，作为播放器来实现，录像，截图功能(点播,直播都支持!)
-#### 此Demo： 不维护了，因为此项目只支持直播的时候，才能录制视频。我现在使用VLC，作为播放器来实现，录像，截图功能(点播,直播都支持!)
+#### 此Demo(不维护了)： 因为此项目只支持直播的时候，才能录制视频。我现在使用VLC，作为播放器来实现，录像，截图功能(点播,直播都支持!)  请移步:VLC录像截图Demo地址：[VlcRecordPlayer](https://github.com/ILoveLin/VlcRecordPlayer)
+#### 此Demo(不维护了)： 因为此项目只支持直播的时候，才能录制视频。我现在使用VLC，作为播放器来实现，录像，截图功能(点播,直播都支持!)  请移步:VLC录像截图Demo地址：[VlcRecordPlayer](https://github.com/ILoveLin/VlcRecordPlayer)
+#### 此Demo(不维护了)： 因为此项目只支持直播的时候，才能录制视频。我现在使用VLC，作为播放器来实现，录像，截图功能(点播,直播都支持!)  请移步:VLC录像截图Demo地址：[VlcRecordPlayer](https://github.com/ILoveLin/VlcRecordPlayer)
 *
 #### 如果帮助的到了您，请您不要吝啬你的Star，谢谢您的点赞（Star），3Q
 #### 如果帮助的到了您，请您不要吝啬你的Star，谢谢您的点赞（Star），3Q
+#### 如果帮助的到了您，请您不要吝啬你的Star，谢谢您的点赞（Star），3Q
+
+#### VLC录像截图Demo地址：[VlcRecordPlayer](https://github.com/ILoveLin/VlcRecordPlayer)
 *
 *
-#### 百度ijkplayer录像 截图功能有很多教程，但是很多都是会，崩溃或者闪退，等等问题！！！！所以在此我觉得把这个Demo开源出来，希望能帮助到需要的人！
-#### 最新更新 在此Demo下更新了，播放器UI控制器，以及RTSP,RTMP音频推流实现连麦功能
-*详情请移步
-*https://github.com/ILoveLin/ijkplayer_Record_PlayerAddUI
+#### 百度ijkplayer录像 截图功能有很多教程，但是很多都是会，崩溃或者闪退，等等问题！！！！所以在此我觉得把这个Demo开源出来，希望能帮助到需要的人(不维护了)！
+#### VLC录像截图Demo地址：[VlcRecordPlayer](https://github.com/ILoveLin/VlcRecordPlayer)
 
 
+## 此项目已经停止维护,目前使用VLC做二次开发(点播,直播,都能实现截图,录像功能,健壮性更强)VLC录像截图Demo地址：[VlcRecordPlayer](https://github.com/ILoveLin/VlcRecordPlayer)
+## 此项目已经停止维护,目前使用VLC做二次开发(点播,直播,都能实现截图,录像功能,健壮性更强)VLC录像截图Demo地址：[VlcRecordPlayer](https://github.com/ILoveLin/VlcRecordPlayer)
+## 此项目已经停止维护,目前使用VLC做二次开发(点播,直播,都能实现截图,录像功能,健壮性更强)VLC录像截图Demo地址：[VlcRecordPlayer](https://github.com/ILoveLin/VlcRecordPlayer)
 
-## 此项目已经停止维护,目前使用VLC做二次开发(点播,直播,都能实现截图,录像功能,健壮性更强具体请参考我的:GodPlayer项目)
 #### 项目使用
 * 备注：您不需要编译任何东西，只需要下载Demo，拷贝main目录下的 jniLibs包下的所有so依赖库 和app/libs目录下 ijkplayer-java-release.aar   （这个是ijk工程里面的java代码）到你自己的项目里面.
 *
