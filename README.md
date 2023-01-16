@@ -1,5 +1,5 @@
-##移步:VLC录像截图Demo地址：[VlcRecordPlayer](https://github.com/ILoveLin/VlcRecordPlayer)
-##移步:VLC录像截图Demo地址：[VlcRecordPlayer](https://github.com/ILoveLin/VlcRecordPlayer)
+## 移步:VLC录像截图Demo地址：[VlcRecordPlayer](https://github.com/ILoveLin/VlcRecordPlayer)
+## 移步:VLC录像截图Demo地址：[VlcRecordPlayer](https://github.com/ILoveLin/VlcRecordPlayer)
 
 #### ~~此Demo(不维护了)： 支持录像,截图功能(点播不支持录像,只支持直播噢!),支持RTSP,RTMP,HTTP等等在线直播(支持所有CPU架构)，您可以做二次开发添加其他功能！！~~
 #### ~~此Demo(不维护了)： 支持录像,截图功能(点播不支持录像,只支持直播噢!),支持RTSP,RTMP,HTTP等等在线直播(支持所有CPU架构)，您可以做二次开发添加其他功能！！~~
