@@ -41,6 +41,7 @@ android {
 dependencies {
 
     implementation files('libs/ijkplayer-java-release.aar')
+    implementation files('libs/libvlc-all-4.0.0-eap8.aar')
     implementation 'com.hjq:xxpermissions:9.6'
 //    implementation 'tv.danmaku.ijk.media:ijkplayer-java:0.8.1'
 //    implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.1'
