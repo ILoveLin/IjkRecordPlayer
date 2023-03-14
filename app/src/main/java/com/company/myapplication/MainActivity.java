@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //苹果公司点播的的流地址
 //    public static final String path = "http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8";
     //我自己公司rtsp的流地址
-    public static final String path = "rtsp://root:root@192.168.66.31:7788/session0.mpg";
+//    public static final String path = "rtsp://root:root@192.168.66.31:7788/session0.mpg";
+    public static String path = "http://219.151.31.38/liveplay-kk.rtxapp.com/live/program/live/hnwshd/4000000/mnf.m3u8";
+
     private SurfaceView surfaceView;
     private TextureView textureView;
     private Surface mSurface;
@@ -86,8 +88,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(System.currentTimeMillis()));
         String s = file.getAbsolutePath() + "/" + date + ".mp4";
         Log.e(TAG, "===s===" + s);
-
-        mRecordPath = s;
+        String replace = s.replace("-", "_");
+        Log.e(TAG, "===s==replace=" + replace);
+        String replace1 = replace.replace(" ", "_");
+        Log.e(TAG, "===s==replace1=" + replace1);
+        String replace2 = replace1.replace(":", "_");
+        Log.e(TAG, "===s==replace2=" + replace2);
+        mRecordPath = replace2;
         Log.e(TAG, "===mRecordPath===" + mRecordPath);
 
         mPlayer.startRecord(mRecordPath);
@@ -109,7 +116,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case R.id.btn_frame:        //截图
-
                 new Thread() {
                     @Override
                     public void run() {
