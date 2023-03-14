@@ -117,15 +117,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //
 //                        Bitmap srcBitmap = Bitmap.createBitmap(1600,
 //                                2560, Bitmap.Config.ARGB_8888);
-                        Bitmap srcBitmap = Bitmap.createBitmap(1920,
-                                1080, Bitmap.Config.ARGB_8888);
+//                        Bitmap srcBitmap = Bitmap.createBitmap(1920,
+//                                1080, Bitmap.Config.ARGB_8888);
 
 //                        Bitmap srcBitmap = Bitmap.createBitmap(720,
 //                                1280, Bitmap.Config.ARGB_8888);
-                        boolean currentFrame = mPlayer.getCurrentFrame(srcBitmap);
+//                        boolean currentFrame = mPlayer.getCurrentFrame(srcBitmap);
+                        Bitmap bitmap = textureView.getBitmap();
                         //插入相册 ，显示刚刚的截图
-//                        MediaStore.Images.Media.insertImage(getContentResolver(), srcBitmap, "IMG" + Calendar.getInstance().getTime(), null);
-                        MediaStore.Images.Media.insertImage(getContentResolver(), srcBitmap, "", "");
+                        MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "IMG" + Calendar.getInstance().getTime(), null);
+//                        MediaStore.Images.Media.insertImage(getContentResolver(), srcBitmap, "", "");
 
                     }
                 }.start();
