@@ -121,11 +121,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void run() {
                         super.run();
-//                     ;
                         Bitmap bitmap = textureView.getBitmap();
                         //插入相册 ，显示刚刚的截图
                         MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "IMG" + Calendar.getInstance().getTime(), null);
-//                        MediaStore.Images.Media.insertImage(getContentResolver(), srcBitmap, "", "");
 
                     }
                 }.start();
