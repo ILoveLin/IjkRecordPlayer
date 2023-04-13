@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //    public static final String path = "http://devimages.apple.com.edgekey.net/streaming/examples/bipbop_4x3/gear2/prog_index.m3u8";
     //我自己公司rtsp的流地址
 //    public static final String path = "rtsp://root:root@192.168.66.31:7788/session0.mpg";
-    public static String path = "http://219.151.31.38/liveplay-kk.rtxapp.com/live/program/live/hnwshd/4000000/mnf.m3u8";
+//    public static String path = "http://219.151.31.38/liveplay-kk.rtxapp.com/live/program/live/hnwshd/4000000/mnf.m3u8";
+    public static String path = "http://192.168.67.210:3333/api/stream/video?session=123456";
 
     private SurfaceView surfaceView;
     private TextureView textureView;
@@ -120,15 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void run() {
                         super.run();
-//
-//                        Bitmap srcBitmap = Bitmap.createBitmap(1600,
-//                                2560, Bitmap.Config.ARGB_8888);
-//                        Bitmap srcBitmap = Bitmap.createBitmap(1920,
-//                                1080, Bitmap.Config.ARGB_8888);
-
-//                        Bitmap srcBitmap = Bitmap.createBitmap(720,
-//                                1280, Bitmap.Config.ARGB_8888);
-//                        boolean currentFrame = mPlayer.getCurrentFrame(srcBitmap);
+//                     ;
                         Bitmap bitmap = textureView.getBitmap();
                         //插入相册 ，显示刚刚的截图
                         MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "IMG" + Calendar.getInstance().getTime(), null);
@@ -138,8 +131,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }.start();
 
                 Toast.makeText(this, "截图", Toast.LENGTH_SHORT).show();
-
-
                 break;
 
 
