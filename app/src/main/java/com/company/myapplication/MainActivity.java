@@ -34,7 +34,9 @@ import java.util.Locale;
 
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
-
+/**
+ * 原版ijk,aar的录像,没有集成DK播放器
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity";
     //苹果公司点播的的流地址
@@ -42,7 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //我自己公司rtsp的流地址
 //    public static final String path = "rtsp://root:root@192.168.66.31:7788/session0.mpg";
 //    public static String path = "http://219.151.31.38/liveplay-kk.rtxapp.com/live/program/live/hnwshd/4000000/mnf.m3u8";
-    public static String path = "http://192.168.67.210:3333/api/stream/video?session=123456";
+//    public static String path = "http://192.168.67.210:3333/api/stream/video?session=123456";
+    public static String path = "http://220.161.87.62:8800/hls/0/index.m3u8";
 
     private SurfaceView surfaceView;
     private TextureView textureView;

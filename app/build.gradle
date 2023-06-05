@@ -43,6 +43,7 @@ dependencies {
     implementation files('libs/ijkplayer-java-release.aar')
     implementation files('libs/libvlc-all-4.0.0-eap8.aar')
     implementation 'com.hjq:xxpermissions:9.6'
+//    # 必选，内部默认使用系统mediaplayer进行解码
 //    implementation 'tv.danmaku.ijk.media:ijkplayer-java:0.8.1'
 //    implementation 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.1'
 //    implementation 'tv.danmaku.ijk.media:ijkplayer-exo:0.8.1'
@@ -68,4 +69,6 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'xyz.doikki.android.dkplayer:dkplayer-java:3.3.7'
+
 }
