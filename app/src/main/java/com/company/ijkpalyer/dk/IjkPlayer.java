@@ -1,4 +1,4 @@
-package com.company.myapplication.dk;
+package com.company.ijkpalyer.dk;
 
 import android.content.ContentResolver;
 import android.content.Context;

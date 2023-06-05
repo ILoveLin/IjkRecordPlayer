@@ -1,13 +1,11 @@
-package com.company.myapplication.ijk;
+package com.company.ijkpalyer.ijk;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceView;
@@ -20,18 +18,14 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.company.myapplication.MainActivity;
-import com.company.myapplication.R;
-import com.company.myapplication.dk.IjkPlayer;
-import com.company.myapplication.dk.IjkPlayerFactory;
+import com.company.ijkpalyer.R;
+import com.company.ijkpalyer.dk.IjkPlayerFactory;
 import com.hjq.permissions.OnPermissionCallback;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 
 import java.io.File;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;

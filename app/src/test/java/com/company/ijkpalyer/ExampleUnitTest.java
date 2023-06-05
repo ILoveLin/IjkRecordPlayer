@@ -1,4 +1,4 @@
-package com.company.myapplication;
+package com.company.ijkpalyer;
 
 import org.junit.Test;
 

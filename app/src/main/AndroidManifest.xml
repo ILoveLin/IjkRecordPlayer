@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.company.myapplication">
+    package="com.company.ijkpalyer">
     <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -25,7 +25,7 @@
         android:requestLegacyExternalStorage="true"
         android:allowNativeHeapPointerTagging="false"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".ijk.IjkPlayerActivity">
+        <activity android:name="com.company.ijkpalyer.ijk.IjkPlayerActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
