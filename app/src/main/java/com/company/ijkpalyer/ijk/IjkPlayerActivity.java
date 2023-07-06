@@ -34,7 +34,7 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 import xyz.doikki.videoplayer.player.VideoView;
 
 /**
- * DK播放器,切换成自己的ijk  arr内核
+ * DK播放器,切换成自己的ijk可以录像的播放器  arr内核+jniLibs.so 文件
  */
 public class IjkPlayerActivity extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "IjkPlayerActivity";

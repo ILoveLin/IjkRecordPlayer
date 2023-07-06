@@ -35,7 +35,8 @@ import java.util.Locale;
 //import org.videolan.libvlc.media.MediaPlayer;
 
 /**
- * vlc 播放器 4.0.0 版本
+ * vlc 播放器 4.0.0 版本还是测试版本
+ * 播放视频会卡顿  仅供参考
  */
 public class ActivityVLC4 extends AppCompatActivity implements View.OnClickListener {
     private static final String TAG = "MainActivity";

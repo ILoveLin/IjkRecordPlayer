@@ -1,4 +1,4 @@
-package com.company.ijkpalyer;
+package com.company.ijkpalyer.utils;
 
 import android.util.Log;
 
