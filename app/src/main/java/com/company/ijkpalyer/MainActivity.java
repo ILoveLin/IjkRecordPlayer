@@ -1,39 +1,13 @@
 package com.company.ijkpalyer;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.SurfaceTexture;
-import android.media.AudioManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.util.Log;
-import android.view.Surface;
-import android.view.SurfaceView;
-import android.view.TextureView;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.company.ijkpalyer.ijk.IjkPlayerActivity;
 import com.company.ijkpalyer.ijk.MyIjkPlayerActivity;
-import com.hjq.permissions.OnPermissionCallback;
-import com.hjq.permissions.Permission;
-import com.hjq.permissions.XXPermissions;
-
-import java.io.File;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-
-import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 
 /**
  * 原版ijk,aar的录像,没有集成DK播放器
@@ -47,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
 //    public static String path = "http://219.151.31.38/liveplay-kk.rtxapp.com/live/program/live/hnwshd/4000000/mnf.m3u8";
 //    public static String path = "http://192.168.67.210:3333/api/stream/video?session=123456";
     public static String path = "http://220.161.87.62:8800/hls/0/index.m3u8";
-
 
 
     @Override

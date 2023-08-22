@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.Surface;
-import android.view.SurfaceView;
-import android.view.TextureView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +29,7 @@ import java.util.List;
 import java.util.Locale;
 
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
+import xyz.doikki.videoplayer.player.BaseVideoView;
 import xyz.doikki.videoplayer.player.VideoView;
 
 /**
@@ -46,8 +45,6 @@ public class IjkPlayerActivity extends AppCompatActivity implements View.OnClick
 //    public static String path = "http://220.161.87.62:8800/hls/0/index.m3u8";
 //    public static String path = "http://192.168.67.210:3333/api/stream/video?session=123456";
 
-    private SurfaceView surfaceView;
-    private TextureView textureView;
     private Surface mSurface;
     private IjkMediaPlayer mPlayer;
     private Button btn_end_record;
@@ -69,7 +66,6 @@ public class IjkPlayerActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ijk);
-        textureView = findViewById(R.id.texture_view);
         btn_start_record = findViewById(R.id.btn_start_record);
         btn_end_record = findViewById(R.id.btn_end_record);
         btn_frame = findViewById(R.id.btn_frame);
@@ -95,6 +91,38 @@ public class IjkPlayerActivity extends AppCompatActivity implements View.OnClick
         requestPermission();
         mVideoView.setUrl(path); //设置视频地址
         mVideoView.start(); //开始播放，不调用则不自动播放
+        responseListener();
+
+    }
+
+    private void responseListener() {
+        mVideoView.addOnStateChangeListener(new BaseVideoView.OnStateChangeListener() {
+            @Override
+            public void onPlayerStateChanged(int playerState) {
+            }
+
+            @Override
+            public void onPlayStateChanged(int playState) {
+                switch (playState) {
+                    case VideoView.STATE_BUFFERING://缓存中
+                        Log.e(TAG, "==DKPlayer===缓存中");
+                        break;
+                    case VideoView.STATE_BUFFERED://缓存完毕
+                        Log.e(TAG, "==DKPlayer===缓存完毕");
+                        break;
+                    case VideoView.STATE_PLAYING://播放
+                        Log.e(TAG, "==DKPlayer===播放");
+                        break;
+                    case VideoView.STATE_PAUSED://播放暂停
+                        Log.e(TAG, "==DKPlayer===播放暂停");
+                        break;
+                    case VideoView.STATE_ERROR://播放失败
+                        Log.e(TAG, "==DKPlayer===播放失败");
+
+                        break;
+                }
+            }
+        });
 
     }
 
