@@ -47,7 +47,7 @@ public class IjkPlayerActivity extends AppCompatActivity implements View.OnClick
 
     private Surface mSurface;
     private IjkMediaPlayer mPlayer;
-    private Button btn_end_record;
+    private Button btn_end_record;  
     private Button btn_frame;
     private Button btn_start_record;
     private String mRecordPath;
